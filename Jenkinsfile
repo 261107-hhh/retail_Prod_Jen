@@ -10,23 +10,22 @@ pipeline {
               bat 'mvn clean compile'
               echo 'mvn clean and compiled'
               
-              //bat "mvn -Dmaven.test.failure.ignore=true clean package"
-              //echo 'mvn packed'
+              
             }
         }
          stage('Test') {
             steps {
                 //bat './mvnw test'
                 //bat 'mvn test'
-                bat 'mvn clean test'
-                echo 'mvn tested'
+                //bat 'mvn test'
+                //echo 'mvn tested'
+                bat 'mvn package'
+                echo 'packed and tested'  
             }
         }
          stage('Deploy') {
             steps {
-
-                //bat 'mvn deploy'
-                bat 'java -jar target/'
+	            bat 'java -jar target/ProductMicroservice-0.0.1-SNAPSHOT.jar'
                 echo 'mvn deployed'
             }
         }
