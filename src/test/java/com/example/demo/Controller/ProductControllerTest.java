@@ -1,57 +1,32 @@
-package com.example.demo.Product;
+package com.example.demo.Controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.util.LangUtil.ProcessController;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.runner.RunWith;
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.example.demo.Controller.CategoryServiceController;
-import com.example.demo.Controller.ProductController;
-//import com.example.demo.Controller.UserController;
 import com.example.demo.Repository.CategoryRepository;
 import com.example.demo.Repository.ProductRepository;
 import com.example.demo.Service.CategoryService;
 import com.example.demo.Service.ProductService;
-import com.example.demo.payload.ApiResponse;
 import com.example.demo.payload.CategoryDto;
 import com.example.demo.payload.ProductDto;
 import com.example.demo.payload.ProductResponse;
 
-//@RunWith(SpringRunner.class)
-//@AutoConfigureTestDatabase(replace=Replace.NONE)
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
-public class ProductTest {
+class ProductControllerTest {
 
-	
+
 	@Autowired
 	private	ProductService productService;
 	
