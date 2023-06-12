@@ -152,7 +152,6 @@ public void downloadImage(@PathVariable int productId, HttpServletResponse respo
 		System.out.print(name);
 		List <ProductDto> findProduct = this.productService.findProduct(name);
 		
-		
 		return new ResponseEntity<List<ProductDto>>(findProduct,HttpStatus.OK);
 	}
 
