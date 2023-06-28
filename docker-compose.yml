@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+ mysqldb:
+  image: mysql
+  container_name:
+   "mysql"
+  restart: always
+  ports:
+   - 3306:3306
+  environment: 
+   MYSQL_ROOT_PASSWORD: Admin@2022
+   MYSQL_DATABASE: ecom_batch1
+   MYSQL_PASSWORD: Admin@2022
+   MYSQL_ROOT_USER: root
+ retail_Prod_Jen:
+  image: retail-prod-docker_img:latest
+  container_name:
+   "retail_prod_cont"
+  restart: unless-stopped
+ # restart: always
+  ports:
+   - 9003:9003
+  build:
+   context: ./
+   dockerfile: Dockerfile_p
+  depends_on:
+   - mysqldb
+  environment:
+   SPRING_DATASOURCE_URL: "jdbc:mysql://mysqldb:3306/ecom_batch1?createDatabaseIfNotExist=true&sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false"
+   SPRING_DATASOURCE_USERNAME: root
+   SPRING_DATASOURCE_PASSWORD: Admin@2022
